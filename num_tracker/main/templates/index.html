@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .headcol {
+            max-width: 85%;
+            margin: 0 auto;
+            margin-top: 22px;
+        }
+        .headcol h2 {
+            text-align: center;
+        }
+        .inner {
+            max-width: 80%;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+        input {
+            color: #111;
+            width: 80%;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 10px;
+        }
+        .maps {
+            margin-top: 25px;
+        }
+        .maps h3 {
+            text-decoration: underline;
+        }
+        .maps .details {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .left b, .right b {
+            padding-bottom: 10px;
+        }
+        .map-sect {
+            margin-top: 26px;
+            border: 1.4px solid black;
+            padding: 8px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Phone Number Tracker</title>
+</head>
+<body>
+    <div class="headcol font-monospace">
+        <h2>Phone Number Tracker</h2>
+        <div class="inner">
+            <form action="" method="post" class="form-group">
+                {% csrf_token %}
+                <div class="input-group mb-3">
+                    <input type="text" name="phonenumber" class="form-control" placeholder="Enter Phone Number To Track" aria-label="Enter Phone Number To Track" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-success" type="submit">Button</button>
+                    </div>
+                </div>
+            </form>
+            <div class="maps">
+                <h3>Details & Map:</h3>
+                <div class="details">
+                    <div class="left">
+                        <b>Country:       <i>{{country}}</i></b>
+                        <br>
+                        <b>Sim Carrier:   <i>{{carrier}}</i></b>
+                    </div>
+                    <div class="right">
+                        <b>Latitude:       <i>{{lat}}</i></b>
+                        <br>
+                        <b>Longitude:   <i>{{long}}</i></b>
+                    </div>
+                </div> 
+                <div class="map-sect">
+                    {{ map_html | safe }}
+                </div>
+            </div>
+        </div>
+        <div class="emptys" style="height: 20px;"></div>
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
